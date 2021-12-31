@@ -26,14 +26,16 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
     static associate(models: any) {
       // define association here
-      User.belongsToMany(models.Project, {through: "user_projects", foreignKey: "user_id"})
+      User.belongsToMany(models.Project, {through: "User_Project", foreignKey: "user_id"})
     }
   };
   User.init({
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      unique: true
     },
     firstName: {
       type: DataTypes.STRING,
