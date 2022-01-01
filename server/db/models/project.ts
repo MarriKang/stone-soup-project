@@ -39,11 +39,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
   };
   Project.init({
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      unique: true
+      unique: true,
+      autoIncrement: true
     },
     creatorId: {
       type: DataTypes.UUID,

@@ -4,7 +4,7 @@ import {
 } from 'sequelize';
 
 interface UserAttributes {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -18,7 +18,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    id!: string;
+    id!: number;
     firstName!: string;
     lastName!: string;
     email!: string;
@@ -32,11 +32,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
   };
   User.init({
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      unique: true
+      unique: true,
+      autoIncrement: true
     },
     firstName: {
       type: DataTypes.STRING,
