@@ -34,7 +34,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
     static associate(models: any) {
       // define association here
       Project.belongsToMany(models.User, {through: "User_Project", foreignKey: "project_id"});
-      // Project.hasMany(models.Reward);
+      Project.hasMany(models.Reward);
     }
   };
   Project.init({
