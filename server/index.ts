@@ -1,5 +1,4 @@
 import express, { Application, Request, Response, NextFunction, Errback} from 'express';
-import { v4 as uuidv4 } from 'uuid';
 
 const app: Application = express();
 const PORT = 8080;
@@ -7,6 +6,10 @@ const PORT = 8080;
 import db from './db/models';
 
 app.get('/', (req, res) => {
+    res.send('yeah')
+})
+
+app.get('/api/users', (req, res) => {
     db.User.findAll()
     .then((result: object) => res.json(result))
     .catch((err: object) => console.error(err));
