@@ -1,50 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
 
-type MyProps = {  };
-type MyState = { apiResponse: string };
-
-class App extends React.Component<MyProps, MyState> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = { 
-      apiResponse: ""
-     }
-  }
-
-  callAPI() {
-    fetch("/api/users")
-        .then(res => res.json())
-        .then(res => this.setState({ apiResponse: res }));
-  }
-
-  componentWillMount() {
-    this.callAPI();
-  }
-
-  render() {
-    console.log(this.state.apiResponse[0])
+const App = () => {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            uh
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+         <Router>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+          </Routes>
+        </Router>
+    )
 }
 
 export default App;
