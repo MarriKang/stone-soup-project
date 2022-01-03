@@ -1,25 +1,22 @@
 import React from 'react';
-
-type ProjectContainerProps  = {
-  id: number,
-  title: string,
-  goal: number,
-  imageUrl: string,
-  type: string,
-  key: number
-}
+import { ProjectContainerProps } from '../types';
+import { Link } from 'react-router-dom';
 
 const ProjectContainer = ({
   id,
   title,
+  currFunds,
   goal,
   imageUrl,
   type
 }: ProjectContainerProps) => {
 
     return (
-      <div className="Explore">
-          <h1>{id}</h1>
+      <div className="ProjectContainer">
+        <Link to={`/explore/${id}`}>
+          <h1>{title}</h1>
+          <h2>{currFunds} out of {goal}</h2>
+        </Link>
       </div>
     );
 }

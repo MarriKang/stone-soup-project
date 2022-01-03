@@ -30,7 +30,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
       references: {
         model: 'Projects',
         key: 'id'
-      }
+      },
+      unique: false
     },
       UserId: {
         type: DataTypes.INTEGER,
@@ -38,7 +39,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
         references: {
           model: 'Users',
           key: 'id'
-        }
+        },
+        unique: false
       },
       amntPaid: {
         type: DataTypes.INTEGER,

@@ -14,22 +14,22 @@ module.exports = {
      return queryInterface.bulkInsert('User_Projects', [
       {
         ProjectId: 1,
-        UserId: 1,
-        amntPaid: 50,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        ProjectId: 1,
-        UserId: 2,
-        amntPaid: 500,
+        UserId: 4,
+        amntPaid: 1025,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       },
       {
         ProjectId: 2,
-        UserId: 2,
-        amntPaid: 500,
+        UserId: 3,
+        amntPaid: 10,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      },
+      {
+        ProjectId: 3,
+        UserId: 3,
+        amntPaid: 25,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       }

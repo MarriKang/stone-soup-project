@@ -29,6 +29,24 @@ module.exports = {
         password: 'johnspassword',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
+      },
+      {
+        id:  3,
+        firstName: 'Jane',
+        lastName: 'Doe',
+        email: 'janedoe@site.com',
+        password: 'janespassword',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      },
+      {
+        id:  4,
+        firstName: 'Areum',
+        lastName: 'Kang',
+        email: 'areum@site.com',
+        password: 'areumspassword',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
       }
    ])
   },

@@ -11,7 +11,7 @@ const ViewProjectsController = () => {
   }, []);
 
   const retrieveProjects = () => {
-    Service.getAll()
+    Service.getAllProjects()
     .then((response: any) => {
       setProjects(response.data);
       console.log(response.data);
@@ -26,7 +26,7 @@ const ViewProjectsController = () => {
     return (
       <div className="ViewProjectsController">
           <h4> look: {projects.map(project => {
-            return <ProjectContainer key={project.id} id={project.id} title={project.title} goal={project.goal} imageUrl={project.imageURL} type={project.type}/>
+            return <ProjectContainer key={project.id} id={project.id} title={project.title} currFunds={project.currFunds} goal={project.goal} imageUrl={project.imageURL} type={project.type}/>
           })}</h4>
         <p>hey uh</p>
       </div>

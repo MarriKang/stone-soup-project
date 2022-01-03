@@ -1,5 +1,6 @@
 import express, { Application, Request, Response, NextFunction, Errback} from 'express';
 import path from 'path';
+import { where } from 'sequelize';
 
 const app: Application = express();
 const PORT = 8080;
@@ -27,6 +28,28 @@ app.get("/api/projects", async (req, res, next) => {
       next(err);
     }
 });
+
+app.get("/api/projects/:id", async (req, res, next) => {
+    try {
+        const project = await db.Project.findByPk(req.params.id);
+        res.json(project)
+    } catch (err) {
+      next(err);
+    }
+});
+
+app.get("/api/projects/:id/rewards", async (req, res, next) => {
+    try {
+        const rewards = await db.Reward.findAll({
+            where: {
+                ProjectId: req.params.id
+            }
+        })
+        res.json(rewards)
+    } catch (err) {
+        next(err);
+    }
+})
 
 
 db.sequelize.sync().then(() => {

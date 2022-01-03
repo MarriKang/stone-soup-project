@@ -7,6 +7,7 @@ interface ProjectAttributes {
   id: number,
   creatorId: number,
   title: string,
+  currFunds: number,
   goal: number,
   endDate: Date,
   description: string,
@@ -25,6 +26,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
      id!: number;
      creatorId!: number;
      title!: string;
+     currFunds!: number;
      goal!: number;
      endDate!: Date;
      description!: string;
@@ -34,7 +36,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
     static associate(models: any) {
       // define association here
       Project.belongsToMany(models.User, {through: "User_Project"});
-      Project.hasMany(models.Reward);
+      Project.belongsToMany(models.Reward, {through: "User_Rewards"});
     }
   };
   Project.init({
@@ -52,6 +54,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
     title: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    currFunds: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     },
     goal: {
       type: DataTypes.INTEGER,

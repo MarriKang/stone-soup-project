@@ -14,19 +14,25 @@ module.exports = {
      return queryInterface.bulkInsert('User_Rewards', [
       {
         RewardId: 1,
-        UserId: 2,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        RewardId: 2,
-        UserId: 2,
+        UserId: 4,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       },
       {
         RewardId: 3,
-        UserId: 2,
+        UserId: 4,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      },
+      {
+        RewardId: 4,
+        UserId: 3,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      },
+      {
+        RewardId: 6,
+        UserId: 3,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       }
