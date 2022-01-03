@@ -1,9 +1,12 @@
 import express, { Application, Request, Response, NextFunction, Errback} from 'express';
+import path from 'path';
 
 const app: Application = express();
 const PORT = 8080;
 // @ts-ignore
 import db from './db/models';
+
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/', (req, res) => {
     res.send('yeah')
