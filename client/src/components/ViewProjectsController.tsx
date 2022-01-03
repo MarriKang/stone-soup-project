@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProjectData from '../types';
 import Service from '../services';
-import Explore from './Explore';
+import ProjectContainer from './ProjectContainer';
 
 const ViewProjectsController = () => {
   const [projects, setProjects] = useState<Array<ProjectData>>([]);
@@ -26,7 +26,7 @@ const ViewProjectsController = () => {
     return (
       <div className="ViewProjectsController">
           <h4> look: {projects.map(project => {
-            return <Explore key={project.id} id={project.id} title={project.title} goal={project.goal} imageUrl={project.imageURL} type={project.type}/>
+            return <ProjectContainer key={project.id} id={project.id} title={project.title} goal={project.goal} imageUrl={project.imageURL} type={project.type}/>
           })}</h4>
         <p>hey uh</p>
       </div>

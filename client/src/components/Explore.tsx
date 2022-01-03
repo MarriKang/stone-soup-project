@@ -1,25 +1,10 @@
 import React from 'react';
-
-type ExploreProps = {
-  id: number,
-  title: string,
-  goal: number,
-  imageUrl: string,
-  type: string,
-  key: number
-}
-
-const Explore = ({
-  id,
-  title,
-  goal,
-  imageUrl,
-  type
-}: ExploreProps) => {
+const Explore = () => {
 
     return (
       <div className="Explore">
-          <h1>{id}</h1>
+          <h1>Explore</h1>
+          <h4>See what projects are being worked on right now</h4>
       </div>
     );
 }
