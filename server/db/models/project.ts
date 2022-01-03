@@ -33,7 +33,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
      type!: string
     static associate(models: any) {
       // define association here
-      Project.belongsToMany(models.User, {through: "User_Project", foreignKey: "project_id"});
+      Project.belongsToMany(models.User, {through: "User_Project"});
       Project.hasMany(models.Reward);
     }
   };
@@ -46,7 +46,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       autoIncrement: true
     },
     creatorId: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     title: {

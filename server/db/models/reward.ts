@@ -22,12 +22,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
     static associate(models: any) {
       // define association here
       Reward.belongsTo(models.Project);
-      Reward.belongsToMany(models.User, {through: "User_Rewards", foreignKey: "reward_id"});
+      Reward.belongsToMany(models.User, {through: "User_Rewards"});
     }
   };
   Reward.init({
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },

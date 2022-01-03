@@ -9,11 +9,22 @@ app.get('/', (req, res) => {
     res.send('yeah')
 })
 
-app.get('/api/users', (req, res) => {
-    db.User.findAll()
-    .then((result: object) => res.json(result))
-    .catch((err: object) => console.error(err));
-})
+app.get("/api/users", async (req, res, next) => {
+    try {
+      res.send(await db.User.findAll());
+    } catch (err) {
+      next(err);
+    }
+});
+
+app.get("/api/projects", async (req, res, next) => {
+    try {
+      res.send(await db.Project.findAll());
+    } catch (err) {
+      next(err);
+    }
+});
+
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
