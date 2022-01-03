@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ProjectData from '../types';
 import Service from '../services';
+import Explore from './Explore';
 
-const ViewProjectsController: React.FC = () => {
+const ViewProjectsController = () => {
   const [projects, setProjects] = useState<Array<ProjectData>>([]);
 
   useEffect(() => {
@@ -23,10 +24,10 @@ const ViewProjectsController: React.FC = () => {
   console.log(projects);
 
     return (
-      <div className="Home">
-          <p> look: {projects.map(project => {
-            return project.title
-          })}</p>
+      <div className="ViewProjectsController">
+          <h4> look: {projects.map(project => {
+            return <Explore key={project.id} id={project.id} title={project.title} goal={project.goal} imageUrl={project.imageURL} type={project.type}/>
+          })}</h4>
         <p>hey uh</p>
       </div>
     );
