@@ -1,11 +1,8 @@
-import express, { Application, Request, Response, NextFunction, Errback} from 'express';
-import path from 'path';
-import { where } from 'sequelize';
+const express = require('express');
+const path = require('path');
 
-const app: Application = express();
-const PORT = process.env.PORT || 8080;
-// @ts-ignore
-import db from './db/models';
+const app = express();
+const PORT = 8080;
 
 app.use(express.static("../client/build"));
 
