@@ -39,6 +39,14 @@ app.get("/api/projects/:id", async (req, res, next) => {
     }
 });
 
+app.post("/api/projects/", async (req, res, next) => {
+  try {
+    res.status(201).send(await db.Project.create(req.body));
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.put("/api/projects/:id/:data", async (req, res, next) => {
     try {
       const project = await db.Project.findByPk(req.params.id);

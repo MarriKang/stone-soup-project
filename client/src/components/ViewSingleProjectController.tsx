@@ -7,11 +7,11 @@ import SingleProject from './SingleProject'
 const ViewSingleProjectController = () => {
     const initialProjectState = {
         id: 0,
-        creatorId: 0,
+        creatorId: 3,
+        creatorName: "",
         title: "",
         currFunds: 0,
         goal: 0,
-        endDate: new Date(),
         description: "",
         status: "",
         imageURL: "",
@@ -55,8 +55,8 @@ const ViewSingleProjectController = () => {
 
     return (
       <div>
-        <SingleProject id={project.id} creatorId={project.creatorId} title={project.title} currFunds={project.currFunds}
-        goal={project.goal} endDate={project.endDate} type={project.type} rewards={rewards}/>
+        <SingleProject id={project.id} creatorId={project.creatorId} creatorName={project.creatorName} title={project.title} currFunds={project.currFunds}
+        goal={project.goal} type={project.type} rewards={rewards}/>
       </div>
     );
 }

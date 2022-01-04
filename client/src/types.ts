@@ -5,12 +5,12 @@ export interface RewardData {
 }
 
 export interface ProjectData {
-    id: number,
+    id?: any | null,
     creatorId: number,
+    creatorName: string,
     title: string,
     currFunds: number
     goal: number,
-    endDate: Date,
     description: string,
     status: string,
     imageURL: string,
@@ -42,11 +42,11 @@ export type ProjectContainerProps  = {
 export type SingleProjectProps = {
     id: number,
     creatorId: number,
+    creatorName: string,
     title: string,
     currFunds: number,
     goal: number,
     type: string,
-    endDate: Date,
     rewards: Array<RewardData>
 }
 

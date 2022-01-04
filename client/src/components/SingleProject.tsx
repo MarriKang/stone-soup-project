@@ -7,6 +7,7 @@ import RewardContainer from './RewardContainer'
 const SingleProject = ({
     id,
     creatorId,
+    creatorName,
     title,
     currFunds,
     goal,
