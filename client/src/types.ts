@@ -33,6 +33,17 @@ export type ProjectContainerProps  = {
   key: number
 }
 
+export type SingleProjectProps = {
+    id: number,
+    creatorId: number,
+    title: string,
+    currFunds: number,
+    goal: number,
+    type: string,
+    endDate: Date,
+    rewards: Array<RewardData>
+}
+
 export type RewardContainerProps = {
     id: number,
     price: number,

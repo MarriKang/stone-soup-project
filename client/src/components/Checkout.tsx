@@ -3,15 +3,9 @@ import { ProjectData, RewardData } from '../types';
 import { useParams, Link } from 'react-router-dom';
 import RewardContainer from './RewardContainer';
 import Service from '../services';
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 
 const Checkout = () => {
-    const initialCheckoutState = {
-        priceArray: [],
-        idArray: []
-    }
-
     const [rewards, setRewards] = useState<Array<RewardData>>([]);
     const [prices, setPrices] = useState<Array<number>>([]);
     const { id } = useParams<{id: string}>();
@@ -57,9 +51,6 @@ const Checkout = () => {
           })
       }
 
-    const handleSubmit = () => {
-
-    }
 
     return (
       <div className="Checkout">

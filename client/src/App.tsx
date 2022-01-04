@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Explore from './components/Explore';
 import About from './components/About'
 import NavBar from './components/NavBar';
-import SingleProject from './components/SingleProject';
+import ViewSingleProjectController from './components/ViewSingleProjectController';
 import Checkout from './components/Checkout';
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
             <Route path="/" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/explore" element={<Explore/>}/>
-            <Route path="/explore/:id" element={<SingleProject/>} />
+            <Route path="/explore/:id" element={<ViewSingleProjectController/>} />
             <Route path="/projects/:id/checkout" element={<Checkout/>}/>
           </Routes>
         </Router>

@@ -1,6 +1,7 @@
 import express, { Application, Request, Response, NextFunction, Errback} from 'express';
 import path from 'path';
 import { DataTypes, where } from 'sequelize';
+import Stripe from 'stripe';
 
 const app: Application = express();
 const PORT = process.env.PORT || 8080;
@@ -60,7 +61,6 @@ app.get("/api/projects/:id/rewards", async (req, res, next) => {
         next(err);
     }
 })
-
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
