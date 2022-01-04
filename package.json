@@ -13,7 +13,7 @@
     "server": "nodemon server/index.ts",
     "client": "cd client && npm start && cd ..",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "deploy": "git add . && git commit -m Heroku && git push heroku master"
+    "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "keywords": [],
   "author": "",
