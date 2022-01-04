@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.ts",
-    "build": "cd client && npm install && npm run build",
+    "start": "node dist/server.js",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc --project .",
     "build-prod": "cd client && npm install && npm run build && cd .. && npm install && npm run build",
-    "server": "nodemon server/index.ts",
+    "server": "nodemon --verbose --watch \"server\" --ext \"ts,json\" --exec ts-node server/index.ts",
     "client": "cd client && npm start && cd ..",
-    "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "tsc": "tsc",
-    "deploy": "git add . && git commit -m Heroku && git push heroku main"
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "keywords": [],
   "author": "",
