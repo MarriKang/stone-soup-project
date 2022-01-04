@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "postinstall": "tsc",
+    "postinstall": "npm run tsc",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
     "build": "tsc --project .",
@@ -13,6 +13,7 @@
     "server": "nodemon server/index.ts",
     "client": "cd client && npm start && cd ..",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "tsc": "tsc",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "keywords": [],
