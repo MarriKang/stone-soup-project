@@ -1,63 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { ProjectData, RewardData } from '../types';
-import { useParams, Link } from 'react-router-dom';
+import { RewardData, CheckoutProps } from '../types';
 import RewardContainer from './RewardContainer';
-import Service from '../services';
 
-
-const Checkout = () => {
-    const [rewards, setRewards] = useState<Array<RewardData>>([]);
+const Checkout = ({
+    projectId,
+    rewards,
+    submitCheckout
+}: CheckoutProps) => {
     const [prices, setPrices] = useState<Array<number>>([]);
-    const { id } = useParams<{id: string}>();
-    const projectId = Number(id);
-
-    useEffect(() => {
-        retrieveRewards();
-      }, []);
-    
-      const retrieveRewards = () => {
-        Service.getAllRewards(projectId)
-        .then((response: any) => {
-          setRewards(response.data);
-          console.log(response.data);
-        })
-        .catch((err: Error) => {
-          console.log(err);
-        })
-      }
+    const [purchased, setPurchase] = useState(false);
 
       const selectPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
-          const currPrice = parseInt(event.target.value);
+        const currPrice = parseInt(event.target.value);
 
-          if (prices.includes(currPrice)) {
-              const newPrices = prices.filter(price => price !== currPrice);
-              setPrices(newPrices);
-          } else {
-              const newPrices = [...prices];
-              newPrices.push(currPrice);
-              setPrices(newPrices);
-          }
-      }
+        if (prices.includes(currPrice)) {
+            const newPrices = prices.filter(price => price !== currPrice);
+            setPrices(newPrices);
+        } else {
+            const newPrices = [...prices];
+            newPrices.push(currPrice);
+            setPrices(newPrices);
+        }
+    }
 
-      const buyRewards = (projectId: number) => {
-          const data = prices.reduce((currTotal, nextNum) => currTotal + nextNum, 0);
+    const currPrice = prices.reduce((currTotal, nextNum) => currTotal + nextNum, 0);
 
-          Service.updateProject(projectId, data)
-          .then((response:any) => {
-              console.log(response.data);
-          })
-          .catch((err: Error) => {
-              console.log(err);
-          })
-      }
-
-
-    return (
-      <div className="Checkout">
+    return(
+        <div className="Checkout">
           <h1>Checkout</h1>
           <h4>Total price:</h4>
-          <h4>{prices.reduce((currTotal, nextNum) => currTotal + nextNum, 0)}</h4>
-          <form>
+          <h4>{currPrice}</h4>
+          <form onSubmit={() => setPurchase(true)}>
               {rewards.map(reward => {
                   return (
                       <div key={`div_${reward.id}`}>
@@ -66,10 +39,10 @@ const Checkout = () => {
                       </div>
                   )
               })}
-              <input type="submit" onClick={() => buyRewards(projectId)}/>
+              {purchased ? <h1>Purchase successful!</h1> : <input type="submit" onClick={(e) => submitCheckout(e, projectId, currPrice)}/>}
           </form>
       </div>
-    );
+    )
 }
 
 export default Checkout;

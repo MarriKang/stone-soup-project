@@ -5,7 +5,7 @@ import Explore from './components/Explore';
 import About from './components/About'
 import NavBar from './components/NavBar';
 import ViewSingleProjectController from './components/ViewSingleProjectController';
-import Checkout from './components/Checkout';
+import CheckoutController from './components/CheckoutController';
 
 const App = () => {
     return (
@@ -16,7 +16,7 @@ const App = () => {
             <Route path="/about" element={<About/>}/>
             <Route path="/explore" element={<Explore/>}/>
             <Route path="/explore/:id" element={<ViewSingleProjectController/>} />
-            <Route path="/projects/:id/checkout" element={<Checkout/>}/>
+            <Route path="/projects/:id/checkout" element={<CheckoutController/>}/>
           </Routes>
         </Router>
     )

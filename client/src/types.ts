@@ -50,3 +50,9 @@ export type RewardContainerProps = {
     description: string,
     key: number
 }
+
+export type CheckoutProps = {
+    projectId: number,
+    rewards: Array<RewardData>,
+    submitCheckout: Function
+}
