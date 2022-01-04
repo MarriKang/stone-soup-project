@@ -45,7 +45,7 @@ const Checkout = () => {
       }
 
       const buyRewards = () => {
-
+          
       }
 
     return (

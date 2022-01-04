@@ -38,6 +38,16 @@ app.get("/api/projects/:id", async (req, res, next) => {
     }
 });
 
+app.put("/api/projects/:id", async (req, res, next) => {
+    try {
+      const project = await db.Project.findByPk(req.params.id);
+      const user = await db.User.findByPk(3);
+      res.json(await project.addUser(user, { through: { amntPaid: 25 } }));
+    } catch (error) {
+      next(error);
+    }
+  });
+
 app.get("/api/projects/:id/rewards", async (req, res, next) => {
     try {
         const rewards = await db.Reward.findAll({
