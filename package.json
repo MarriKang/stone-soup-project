@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "postinstall": "npm run tsc",
-    "watch-node": "nodemon dist/index.js",
-    "watch-ts": "tsc -w",
+    "start": "ts-node server/index.ts",
     "build": "tsc --project .",
     "build-prod": "cd client && npm install && npm run build && cd .. && npm install && npm run build",
     "server": "nodemon server/index.ts",
