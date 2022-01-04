@@ -14,10 +14,15 @@ const getAllRewards = (id: number) => {
     return http.get<Array<RewardData>>(`/projects/${id}/rewards`);
 }
 
+const updateProject = (id: number, data: number) => {
+    return http.put<any>(`/projects/${id}/${data}`)
+}
+
 const Service = {
     getAllProjects,
     getProject,
-    getAllRewards
+    getAllRewards,
+    updateProject
 }
 
 export default Service;

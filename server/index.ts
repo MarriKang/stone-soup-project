@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction, Errback} from 'express';
 import path from 'path';
-import { where } from 'sequelize';
+import { DataTypes, where } from 'sequelize';
 
 const app: Application = express();
 const PORT = process.env.PORT || 8080;
@@ -38,11 +38,11 @@ app.get("/api/projects/:id", async (req, res, next) => {
     }
 });
 
-app.put("/api/projects/:id", async (req, res, next) => {
+app.put("/api/projects/:id/:data", async (req, res, next) => {
     try {
       const project = await db.Project.findByPk(req.params.id);
       const user = await db.User.findByPk(3);
-      res.json(await project.addUser(user, { through: { amntPaid: 25 } }));
+      res.json(await project.addUser(user, { through: { amntPaid: req.params.data } }));
     } catch (error) {
       next(error);
     }

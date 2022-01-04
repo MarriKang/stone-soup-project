@@ -3,6 +3,7 @@ import { ProjectData, RewardData } from '../types';
 import { useParams, Link } from 'react-router-dom';
 import RewardContainer from './RewardContainer';
 import Service from '../services';
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 
 const Checkout = () => {
@@ -44,9 +45,21 @@ const Checkout = () => {
           }
       }
 
-      const buyRewards = () => {
-          
+      const buyRewards = (projectId: number) => {
+          const data = prices.reduce((currTotal, nextNum) => currTotal + nextNum, 0);
+
+          Service.updateProject(projectId, data)
+          .then((response:any) => {
+              console.log(response.data);
+          })
+          .catch((err: Error) => {
+              console.log(err);
+          })
       }
+
+    const handleSubmit = () => {
+
+    }
 
     return (
       <div className="Checkout">
@@ -62,7 +75,7 @@ const Checkout = () => {
                       </div>
                   )
               })}
-              <input type="submit" onClick={buyRewards}/>
+              <input type="submit" onClick={() => buyRewards(projectId)}/>
           </form>
       </div>
     );
