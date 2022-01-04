@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProjectData from '../types';
+import { ProjectData } from '../types';
 import Service from '../services';
 import ProjectContainer from './ProjectContainer';
 

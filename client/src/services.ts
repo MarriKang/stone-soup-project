@@ -1,5 +1,5 @@
 import http from "./http-common";
-import ProjectData from "./types";
+import { ProjectData, RewardData } from "./types";
 import axios from 'axios';
 
 const getAllProjects = () => {
@@ -11,7 +11,7 @@ const getProject = (id: number) => {
 }
 
 const getAllRewards = (id: number) => {
-    return http.get<Array<ProjectData>>(`/projects/${id}/rewards`);
+    return http.get<Array<RewardData>>(`/projects/${id}/rewards`);
 }
 
 const Service = {

@@ -4,7 +4,7 @@ export interface RewardData {
     description: string
 }
 
-export default interface ProjectData {
+export interface ProjectData {
     id: number,
     creatorId: number,
     title: string,
@@ -17,6 +17,12 @@ export default interface ProjectData {
     type: string
 }
 
+export interface RewardData {
+    id: number,
+    price: number,
+    description: string
+}
+
 export type ProjectContainerProps  = {
   id: number,
   title: string,
@@ -25,4 +31,11 @@ export type ProjectContainerProps  = {
   imageUrl: string,
   type: string,
   key: number
+}
+
+export type RewardContainerProps = {
+    id: number,
+    price: number,
+    description: string,
+    key: number
 }

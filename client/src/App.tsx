@@ -5,6 +5,7 @@ import Explore from './components/Explore';
 import About from './components/About'
 import NavBar from './components/NavBar';
 import SingleProject from './components/SingleProject';
+import Checkout from './components/Checkout';
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
             <Route path="/about" element={<About/>}/>
             <Route path="/explore" element={<Explore/>}/>
             <Route path="/explore/:id" element={<SingleProject/>} />
+            <Route path="/projects/:id/checkout" element={<Checkout/>}/>
           </Routes>
         </Router>
     )
