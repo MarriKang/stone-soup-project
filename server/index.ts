@@ -62,6 +62,15 @@ app.get("/api/projects/:id/rewards", async (req, res, next) => {
     }
 })
 
+app.get("/api/users/:userId", async (req, res, next) => {
+  try {
+      const creator = await db.User.findByPk(req.params.userId);
+      res.json(creator)
+  } catch (err) {
+      next(err);
+  }
+})
+
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Server is connected at http://localhost/${PORT}`);

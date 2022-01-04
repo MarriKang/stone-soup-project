@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ProjectData, RewardData } from '../types';
+import React, { useState, useEffect, useCallback } from 'react';
+import { ProjectData, RewardData, UserData } from '../types';
 import Service from '../services';
 import { useParams, Link } from 'react-router-dom';
 import SingleProject from './SingleProject'
@@ -23,6 +23,7 @@ const ViewSingleProjectController = () => {
 
   const { id } = useParams<{id: string}>();
   const projectId = Number(id);
+  const creatorId = project.creatorId;
 
   useEffect(() => {
     retrieveProject();
@@ -36,7 +37,6 @@ const ViewSingleProjectController = () => {
     Service.getProject(projectId)
     .then((response: any) => {
       setProject(response.data);
-      console.log(response.data);
     })
     .catch((err: Error) => {
       console.log(err);
@@ -47,7 +47,6 @@ const ViewSingleProjectController = () => {
     Service.getAllRewards(projectId)
     .then((response: any) => {
       setRewards(response.data);
-      console.log(response.data);
     })
     .catch((err: Error) => {
       console.log(err);

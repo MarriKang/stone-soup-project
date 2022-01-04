@@ -14,7 +14,6 @@ const ViewProjectsController = () => {
     Service.getAllProjects()
     .then((response: any) => {
       setProjects(response.data);
-      console.log(response.data);
     })
     .catch((err: Error) => {
       console.log(err);
@@ -25,10 +24,10 @@ const ViewProjectsController = () => {
 
     return (
       <div className="ViewProjectsController">
-          <h4> look: {projects.map(project => {
+        <h5>Look</h5>
+          <div className="all-projects-container">{projects.map(project => {
             return <ProjectContainer key={project.id} id={project.id} title={project.title} currFunds={project.currFunds} goal={project.goal} imageUrl={project.imageURL} type={project.type}/>
-          })}</h4>
-        <p>hey uh</p>
+          })}</div>
       </div>
     );
 }

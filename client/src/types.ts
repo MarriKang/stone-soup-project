@@ -23,6 +23,12 @@ export interface RewardData {
     description: string
 }
 
+export interface UserData {
+    id: number,
+    firstName: string,
+    lastName: string
+}
+
 export type ProjectContainerProps  = {
   id: number,
   title: string,
