@@ -18,6 +18,12 @@
   color: white;
 }
 
+/* About page */
+.About {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 /* Explore page elements */
 .Explore {
   text-align: center;
@@ -64,6 +70,11 @@
 
 .creator-name {
   margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+
+.creator-container {
+  display: flex;
 }
 
 .reward-container {
@@ -76,6 +87,10 @@
   height: 200px;
   max-width: 300px;
   padding: 2em;
+}
+
+.reward-title {
+  margin-top: 5%;
 }
 
 .fund-button {
@@ -150,4 +165,9 @@
   margin-top: 10%;
   margin-bottom: 10%;
   cursor: pointer;
+}
+
+.status-page {
+  text-align: center;
+  margin-top: 10%;
 }

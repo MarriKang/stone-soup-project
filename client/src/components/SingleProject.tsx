@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import RewardContainer from './RewardContainer'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import PersonIcon from '@mui/icons-material/Person';
+import Avatar from '@mui/material/Avatar';
 
 const SingleProject = ({
     id,
@@ -26,15 +28,21 @@ const SingleProject = ({
     return (
       <div className="SingleProject">
           <h1 className="project-title">{title}</h1>
+          <div className="creator-container">
           <h4 className="creator-name">Created by: {creatorName}</h4>
+          <Avatar>
+            <PersonIcon/>
+          </Avatar>
+          </div>
           <img src="/jazzcat_banner.jpg" alt="a cat playing the trumpet"/>
           <Box className="progress-bar-container">
             <LinearProgress variant="determinate" value={progress} />
           </Box>
           <h2>${formattedFunds} out of ${formattedGoal} raised</h2>
-          <small><i>{fact}</i></small>
           <p>{description}</p>
-          <h3>Reward tiers</h3>
+          <h4>Note from the creator:</h4>
+          <small><i>Do you love cats too? Here's a fun fact: {fact}</i></small>
+          <h3 className="reward-title">Reward tiers</h3>
           <div className="reward-container">{rewards.map(reward => {
             return <RewardContainer key={reward.id} id={reward.id} price={reward.price} description={reward.description}/>
           })}</div>

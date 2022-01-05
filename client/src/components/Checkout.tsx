@@ -29,8 +29,8 @@ const Checkout = ({
         <div className="Checkout">
           <h1>Checkout</h1>
           <div className="checkout-info">
-                <h4>Total price:</h4>
-                <h4>${currPrice}</h4>
+                <h3>Total price:</h3>
+                <h2>${currPrice}</h2>
                 {currPrice === '0' ? <Button variant="contained" disabled className="checkout-button" onClick={(e) => submitCheckout(e, projectId, currPrice)}>Select at least one reward</Button>
                 : <Button variant="contained" className="checkout-button" onClick={(e) => submitCheckout(e, projectId, currPrice)}>Submit Payment</Button>}
               </div>
