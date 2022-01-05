@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/* Nav bar styling */
 .NavBar {
   display: flex;
   justify-content: space-around;
@@ -16,8 +16,10 @@
   color: white;
 }
 
+/* Explore page elements */
 .Explore {
   text-align: center;
+  margin-top: 10%;
 }
 
 .all-projects-container {
@@ -40,11 +42,22 @@
   padding: 2em;
 }
 
+/* Single project view */
+
 .SingleProject {
   display: flex;
   flex-flow: column;
   align-items: center;
   text-align: center;
+}
+
+.project-title {
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+.creator-name {
+  margin-top: 0.5em;
 }
 
 .reward-container {
@@ -54,7 +67,76 @@
 }
 
 .reward-cards {
-  height: 150px;
+  height: 200px;
   max-width: 300px;
   padding: 2em;
+}
+
+.fund-button {
+  font-size: 1.5em;
+  border: none;
+  color: white;
+  background-color: darkslategrey;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  cursor: pointer;
+}
+
+.delete-button {
+  font-size: 1.5em;
+  border: none;
+  color: white;
+  background-color: rgb(167, 9, 9);
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-bottom: 10%;
+  cursor: pointer;
+}
+
+/* Checkout */
+.Checkout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.Checkout h1 {
+  grid-column: 1/-1;
+}
+
+.Checkout h4 {
+  grid-column: 2;
+}
+
+.reward-form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.reward-form input {
+  float: left;
+  margin: 10%;
+}
+
+.checkout-info {
+  grid-column-start: 2;
+}
+
+.checkout-button {
+  align-items: center;
+  font-size: 1.5em;
+  border: none;
+  color: white;
+  background-color:cornflowerblue;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  cursor: pointer;
 }

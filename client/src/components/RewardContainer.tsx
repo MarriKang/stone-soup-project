@@ -14,7 +14,7 @@ const RewardContainer = ({
       <div className="RewardContainer">
         <Card className="reward-cards">
             <CardContent>
-                <Typography variant="h4">${price} Reward</Typography>
+                <Typography variant="h4">${price.toLocaleString()} Reward</Typography>
                 <br/>
                 <Typography variant="body2">{description}</Typography>
             </CardContent>

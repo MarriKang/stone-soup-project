@@ -46,8 +46,10 @@ export type SingleProjectProps = {
     title: string,
     currFunds: number,
     goal: number,
+    description: string,
     type: string,
-    rewards: Array<RewardData>
+    rewards: Array<RewardData>,
+    deleteProject: Function
 }
 
 export type RewardContainerProps = {

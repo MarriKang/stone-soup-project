@@ -26,13 +26,18 @@ const getCreator = (userId: number) => {
     return http.get<UserData>(`/users/${userId}`)
 }
 
+const deleteProject = (id: number) => {
+    return http.delete<any>(`/projects/${id}`);
+}
+
 const Service = {
     getAllProjects,
     getProject,
     getAllRewards,
     updateProject,
     createProject,
-    getCreator
+    getCreator,
+    deleteProject
 }
 
 export default Service;

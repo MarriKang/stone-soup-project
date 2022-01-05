@@ -23,23 +23,25 @@ const Checkout = ({
         }
     }
 
-    const currPrice = prices.reduce((currTotal, nextNum) => currTotal + nextNum, 0);
+    const currPrice = prices.reduce((currTotal, nextNum) => currTotal + nextNum, 0).toLocaleString();
 
     return(
         <div className="Checkout">
           <h1>Checkout</h1>
-          <h4>Total price:</h4>
-          <h4>{currPrice}</h4>
-          <form onSubmit={() => setPurchase(true)}>
+          <div className="checkout-info">
+                <h4>Total price:</h4>
+                <h4>${currPrice}</h4>
+              </div>
+          <form className="reward-form" onSubmit={() => setPurchase(true)}>
               {rewards.map(reward => {
                   return (
                       <div key={`div_${reward.id}`}>
-                        <RewardContainer key={reward.id} id={reward.id} price={reward.price} description={reward.description}/>
                         <input key={`input_${reward.id}`} type="checkbox" value={reward.price} onChange={selectPrice}/>
+                        <RewardContainer key={reward.id} id={reward.id} price={reward.price} description={reward.description}/>
                       </div>
                   )
               })}
-              {purchased ? <h1>Purchase successful!</h1> : <input type="submit" onClick={(e) => submitCheckout(e, projectId, currPrice)}/>}
+              <input className="checkout-button" type="submit" onClick={(e) => submitCheckout(e, projectId, currPrice)}/>
           </form>
       </div>
     )
