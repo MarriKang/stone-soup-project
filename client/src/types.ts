@@ -49,7 +49,8 @@ export type SingleProjectProps = {
     description: string,
     type: string,
     rewards: Array<RewardData>,
-    deleteProject: Function
+    deleteProject: Function,
+    fact: string
 }
 
 export type RewardContainerProps = {

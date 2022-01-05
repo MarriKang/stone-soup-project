@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { RewardData, CheckoutProps } from '../types';
 import RewardContainer from './RewardContainer';
+import Button from '@mui/material/Button';
 
 const Checkout = ({
     projectId,
@@ -8,7 +9,6 @@ const Checkout = ({
     submitCheckout
 }: CheckoutProps) => {
     const [prices, setPrices] = useState<Array<number>>([]);
-    const [purchased, setPurchase] = useState(false);
 
       const selectPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
         const currPrice = parseInt(event.target.value);
@@ -31,8 +31,10 @@ const Checkout = ({
           <div className="checkout-info">
                 <h4>Total price:</h4>
                 <h4>${currPrice}</h4>
+                {currPrice === '0' ? <Button variant="contained" disabled className="checkout-button" onClick={(e) => submitCheckout(e, projectId, currPrice)}>Select at least one reward</Button>
+                : <Button variant="contained" className="checkout-button" onClick={(e) => submitCheckout(e, projectId, currPrice)}>Submit Payment</Button>}
               </div>
-          <form className="reward-form" onSubmit={() => setPurchase(true)}>
+          <form className="reward-form">
               {rewards.map(reward => {
                   return (
                       <div key={`div_${reward.id}`}>
@@ -41,7 +43,6 @@ const Checkout = ({
                       </div>
                   )
               })}
-              <input className="checkout-button" type="submit" onClick={(e) => submitCheckout(e, projectId, currPrice)}/>
           </form>
       </div>
     )

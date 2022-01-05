@@ -7,9 +7,9 @@ import SearchIcon from '@mui/icons-material/Search';
 function NavBar() {
     return (
       <div className="NavBar">
-        <Link to="/"><HomeIcon/>Home</Link>
-        <Link to="/about"><InfoIcon/>About</Link>
-        <Link to="/explore"><SearchIcon/>Explore</Link>
+        <Link to="/"><HomeIcon/>&nbsp;&nbsp;Home</Link>
+        <Link to="/about"><InfoIcon/>&nbsp;&nbsp;About</Link>
+        <Link to="/explore"><SearchIcon/>&nbsp;&nbsp;Explore</Link>
       </div>
     );
 }

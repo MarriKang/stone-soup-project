@@ -22,13 +22,10 @@ const createProject = (data: ProjectData) => {
     return http.post<ProjectData>("/projects", data)
 }
 
-const getCreator = (userId: number) => {
-    return http.get<UserData>(`/users/${userId}`)
-}
-
 const deleteProject = (id: number) => {
     return http.delete<any>(`/projects/${id}`);
 }
+
 
 const Service = {
     getAllProjects,
@@ -36,7 +33,6 @@ const Service = {
     getAllRewards,
     updateProject,
     createProject,
-    getCreator,
     deleteProject
 }
 

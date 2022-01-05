@@ -13,7 +13,10 @@ import DeleteSuccess from './components/DeleteSuccess';
 const App = () => {
     return (
         <Router>
+          <nav>
           <NavBar/>
+          </nav>
+          <main>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
@@ -23,6 +26,7 @@ const App = () => {
             <Route path="/checkoutsuccess" element={<CheckoutSuccess />} />
             <Route path="/deleted" element={<DeleteSuccess/>} />
           </Routes>
+          </main>
         </Router>
     )
 }
