@@ -17,12 +17,20 @@ Separating the components in this manner aids in keeping data secure, organizes 
 - To seed tables, use 'npx sequelize-cli db:seed:all'
 - Run app using 'npm run dev'
 - If the app does not open automatically, run it on localhost:3000.
+```
+npm install
+cd client && npm install
+cd .. && npm run server
+npx sequelize-cli db:seed:all
+npm run dev
+
+```
 
 ## Structure
-The app is split into two main components: the backend server which contains Sequelize models and Express routes, and the front-end client. The 'run dev' script runs both concurrently so the front-end is able to proxy to the server.
+The app is split into two main components: the backend server which contains Sequelize models and Express routes, and the front-end client. The 'run dev' script runs both concurrently so the front-end is able to proxy to the server.  
 ![Server and client folders](https://imgur.com/PQhTQ7n.png)
 
-Within the client folder, React components can be found in the components folder. Controllers are kept separate from views in their own folder for easy access.
+Within the client folder, React components can be found in the components folder. Controllers are kept separate from views in their own folder for easy access.  
 ![React components folder](https://imgur.com/mUUFW6d.png)
 
 The backend models are comprised of Users, Projects, and Rewards.
@@ -51,6 +59,6 @@ From here, the view will determine whether the user is the creator of the projec
 The checkout view contains a list of reward available for purchase. The checkout button is disabled when no selections are made to prevent the user from checking out too fast.
 ![Checkout view when no selection is made](https://i.imgur.com/ae128ha.png)
 
-Once a reward is selected, the checkout button will activate. Checking out will redirect the user to the checkout success page, and create a new relationship in the database through User_Project.
+Once a reward is selected, the checkout button will activate. Checking out will redirect the user to the checkout success page, and create a new relationship in the database through User_Project.  
 ![Checkout view button now active after selection](https://i.imgur.com/L6s4cC6.png)
 ![New relationship created in database after checking out](https://imgur.com/iOobiRn.png)
