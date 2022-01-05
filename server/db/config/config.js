@@ -18,6 +18,7 @@ module.exports = {
     "password": null,
     "database": "stone-soup",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL"
   }
 }
