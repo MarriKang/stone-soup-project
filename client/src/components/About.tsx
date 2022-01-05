@@ -5,7 +5,7 @@ const About = () => {
 
     return (
       <div className="About">
-          <ProjectForm />
+          About
       </div>
     );
 }

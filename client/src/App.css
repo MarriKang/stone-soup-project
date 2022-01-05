@@ -23,10 +23,21 @@
 .all-projects-container {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: nowrap;
 }
 
 .ProjectContainer {
-  background-color: teal;
+  margin: 1em;
+}
+
+.ProjectContainer a {
+  text-decoration: none;
+  color: black;
+}
+
+.project-cards {
+  max-width: 300px;
+  padding: 2em;
 }
 
 .SingleProject {

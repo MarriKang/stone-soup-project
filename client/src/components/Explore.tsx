@@ -1,5 +1,5 @@
 import React from 'react';
-import ViewProjectsController from './ViewProjectsController';
+import ViewProjectsController from './controllers/ViewProjectsController';
 
 const Explore = () => {
 

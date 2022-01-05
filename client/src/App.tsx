@@ -5,8 +5,8 @@ import Home from './components/Home';
 import Explore from './components/Explore';
 import About from './components/About'
 import NavBar from './components/NavBar';
-import ViewSingleProjectController from './components/ViewSingleProjectController';
-import CheckoutController from './components/CheckoutController';
+import ViewSingleProjectController from './components/controllers/ViewSingleProjectController';
+import CheckoutController from './components/controllers/CheckoutController';
 
 const App = () => {
     return (

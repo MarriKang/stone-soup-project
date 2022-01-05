@@ -1,6 +1,11 @@
 import React from 'react';
 import { ProjectContainerProps } from '../types';
 import { Link } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 const ProjectContainer = ({
   id,
@@ -16,8 +21,16 @@ const ProjectContainer = ({
     return (
       <div className="ProjectContainer">
         <Link to={`/explore/${id}`}>
-          <h1>{title}</h1>
-          <h2>{formattedFunds} out of {formattedGoal} raised</h2>
+          {/* <h1>{title}</h1>
+          <h2>${formattedFunds} out of ${formattedGoal} raised</h2> */}
+          <Card className="project-cards">
+            <CardContent>
+              <Typography variant="h4">{title}</Typography>
+              <Typography variant="body1">
+                <big><b>${formattedFunds}</b></big> out of <big><b>${formattedGoal}</b></big> raised
+              </Typography>
+            </CardContent>
+          </Card>
         </Link>
       </div>
     );
