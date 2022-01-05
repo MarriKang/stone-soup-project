@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
+    "postinstall": "tsc",
     "build": "tsc --build",
     "clean": "tsc --build --clean",
     "build-prod": "cd client && npm install && npm run build && cd .. && npm install && npm run build",
