@@ -46,3 +46,15 @@
   align-items: center;
   text-align: center;
 }
+
+.reward-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.reward-cards {
+  height: 150px;
+  max-width: 300px;
+  padding: 2em;
+}

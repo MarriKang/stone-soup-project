@@ -22,9 +22,10 @@ const SingleProject = ({
           <h1>{title}</h1>
           <h4>Created by: </h4>
           <h2>{formattedFunds} out of {formattedGoal} raised</h2>
-          <h4>{rewards.map(reward => {
+          <h3>Reward tiers</h3>
+          <div className="reward-container">{rewards.map(reward => {
             return <RewardContainer key={reward.id} id={reward.id} price={reward.price} description={reward.description}/>
-          })}</h4>
+          })}</div>
           <Link to={`/projects/${id}/checkout`}>
               <button>Checkout</button>
             </Link>
