@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         ProjectId: 3,
-        UserId: 3,
+        UserId: 1,
         amntPaid: 25,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()

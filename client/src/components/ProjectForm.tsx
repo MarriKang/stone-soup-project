@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import { ProjectData } from '../types';
+import Service from '../services';
 
 const ProjectForm = () => {
     const initialProjectState = {
@@ -35,13 +36,39 @@ const ProjectForm = () => {
             imageURL: project.imageURL,
             type: project.type,
         }
+
+        Service.createProject(data)
+        .then((response: any) => {
+            setProject({
+                id: response.data.id,
+                creatorId: response.data.creatorId,
+                creatorName: response.data.creatorName,
+                title: response.data.title,
+                currFunds: response.data.currFunds,
+                goal: response.data.goal,
+                description: response.data.description,
+                status: response.data.status,
+                imageURL: response.data.imageURL,
+                type: response.data.type,
+            });
+            console.log(response.data);
+        })
+        .catch((err: Error) => {
+            console.log(err)
+        })
     }
 
     return (
         <div className="ProjectForm">
             <form>
-                <input type="text" value={project.title}>Title</input>
-                <input type="number" value={project.goal}>Goal</input>
+                <input 
+                type="text" 
+                className="form-control" 
+                id="title" 
+                required value={project.title} 
+                onChange={handleInputChange} 
+                name="title"/>
+                <input type="submit" onClick={createProject}/>
             </form>
         </div>
     )

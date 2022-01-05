@@ -18,6 +18,10 @@ const updateProject = (id: number, data: number) => {
     return http.put<any>(`/projects/${id}/${data}`)
 }
 
+const createProject = (data: ProjectData) => {
+    return http.post<ProjectData>("/projects", data)
+}
+
 const getCreator = (userId: number) => {
     return http.get<UserData>(`/users/${userId}`)
 }
@@ -27,6 +31,7 @@ const Service = {
     getProject,
     getAllRewards,
     updateProject,
+    createProject,
     getCreator
 }
 

@@ -1,7 +1,6 @@
 import express, { Application, Request, Response, NextFunction, Errback} from 'express';
 import path from 'path';
-import { DataTypes, where } from 'sequelize';
-import Stripe from 'stripe';
+import bodyParser from 'body-parser';
 
 const app: Application = express();
 const PORT = process.env.PORT || 8080;
@@ -9,6 +8,9 @@ const PORT = process.env.PORT || 8080;
 import db from './db/models';
 
 app.use(express.static("../client/build"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 app.get('/', (req, res) => {
     res.send('yeah')
@@ -37,6 +39,16 @@ app.get("/api/projects/:id", async (req, res, next) => {
     } catch (err) {
       next(err);
     }
+});
+
+app.delete("/api/projects/:id", async (req, res, next) => {
+  try {
+    const project = await db.Project.findByPk(req.params.id);
+    await project.destroy();
+    res.send(project);
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.post("/api/projects/", async (req, res, next) => {

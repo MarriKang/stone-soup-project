@@ -53,6 +53,20 @@ module.exports = {
         type: "book",
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
+      },
+      {
+        id: 4,
+        creatorId: 3,
+        creatorName: "Jane Doe",
+        title: "Jazz for Cats 4",
+        currFunds: 0,
+        goal: 20000,
+        description: "You Will buy Jazz for Cats, and you Will like it.",
+        status: "in-progress",
+        imageURL: 'pretend-im-a-url',
+        type: "film",
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
       }
    ])
   },
